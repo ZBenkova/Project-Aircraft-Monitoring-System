@@ -1,4 +1,4 @@
-aircraft = {
+aircraft1 = {
     "flight": "LH123",
     "altitude": 10500,
     "speed": 850,
@@ -6,29 +6,38 @@ aircraft = {
     "fuel": 22
 }
 
-print(f"Flight: {aircraft['flight']}")
+aircraft2 = {
+    "flight": "BA456",
+    "fuel": 75,
+    "engine_temp": 105
+}
 
-def check_fuel(X):
-    if X >= 30:
-        return "OK"
+fleet = [aircraft1, aircraft2]
+
+print(fleet)
+
+
+def generate_aircraft_report(fuel, engine_temp):
+
+    if fuel >= 50:
+        fuel_status = "FUEL OK"
     else:
-        return "LOW FUEL"
-    
-status = check_fuel(aircraft["fuel"])
-print(status)
+        fuel_status = "LOW FUEL"
 
-if status == "LOW FUEL":
-    print("Pilot must land immediately!")
-
-
-def check_engine_temperature(eng_temp):
-    if eng_temp >= 100:
-        return "ENGINE OVERHEAT"
+    if engine_temp >= 100:
+        engine_status = "ENGINE OVERHEAT"
     else:
-        return "ENGINE OK"
+        engine_status = "ENGINE OK"
 
-status = check_engine_temperature(aircraft["engine_temp"])
+    return fuel_status, engine_status
+
+
+
+for aircraft in fleet:
+
+    status = generate_aircraft_report(
+        aircraft["fuel"],
+        aircraft["engine_temp"]
+    )
+
 print(status)
-
-if status == "ENGINE OVERHEAT":
-    print("Pilot must land immediately!")
