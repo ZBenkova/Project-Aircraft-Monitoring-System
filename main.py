@@ -8,11 +8,21 @@ aircraft1 = {
 
 aircraft2 = {
     "flight": "BA456",
-    "fuel": 75,
-    "engine_temp": 105
+    "altitude": 8700,
+    "speed": 650,
+    "engine_temp": 101,
+    "fuel": 69
 }
 
-fleet = [aircraft1, aircraft2]
+aircraft3 = {
+    "flight" : "LH7811",
+    "altitude": 4300,
+    "speed": 450,
+    "engine_temp": 81,
+    "fuel": 90
+}
+
+fleet = [aircraft1, aircraft2, aircraft3]
 
 print(fleet)
 
