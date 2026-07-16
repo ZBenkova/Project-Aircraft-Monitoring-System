@@ -24,7 +24,6 @@ aircraft3 = {
 
 fleet = [aircraft1, aircraft2, aircraft3]
 
-print(fleet)
 
 
 def generate_aircraft_report(fuel, engine_temp):
@@ -50,4 +49,4 @@ for aircraft in fleet:
         aircraft["engine_temp"]
     )
 
-print(status)
+    print(status)
