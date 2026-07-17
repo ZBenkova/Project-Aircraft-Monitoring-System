@@ -52,3 +52,5 @@ for aircraft in fleet:
     print(status)
 
 assert generate_aircraft_report(60, 130) == ('FUEL OK', 'ENGINE OVERHEAT')
+assert generate_aircraft_report(20, 90) == ('LOW FUEL', 'ENGINE OK')
+assert generate_aircraft_report(29,100) == ('LOW FUEL', 'ENGINE OVERHEAT')
