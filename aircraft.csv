@@ -1,0 +1,4 @@
+flight,altitude,speed,engine_temp,fuel
+LH123,10500,850,91,22
+BA456,8700,650,101,69
+LH7811,4300,450,81,90

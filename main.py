@@ -1,28 +1,24 @@
-aircraft1 = {
-    "flight": "LH123",
-    "altitude": 10500,
-    "speed": 850,
-    "engine_temp": 91,
-    "fuel": 22
-}
+fleet = []
 
-aircraft2 = {
-    "flight": "BA456",
-    "altitude": 8700,
-    "speed": 650,
-    "engine_temp": 101,
-    "fuel": 69
-}
+with open("aircraft.csv") as file:
+    lines = file.readlines()
+    print("Lines:", lines)
 
-aircraft3 = {
-    "flight" : "LH7811",
-    "altitude": 4300,
-    "speed": 450,
-    "engine_temp": 81,
-    "fuel": 90
-}
+for line in lines[1:]:
+    print("Line:", line)
+    data = line.strip().split(",")
+    print("Data:", data)
 
-fleet = [aircraft1, aircraft2, aircraft3]
+    aircraft = {
+        "flight": data[0],
+        "altitude": int(data[1]),
+        "speed": int(data[2]),
+        "engine_temp": int(data[3]),
+        "fuel": int(data[4])
+    }
+    print("aircraft:", aircraft)
+
+    fleet.append(aircraft)
 
 
 
@@ -49,8 +45,10 @@ for aircraft in fleet:
         aircraft["engine_temp"]
     )
 
-    print(status)
+    print(aircraft["flight"], status)
 
+
+assert 2 + 2 == 4
 assert generate_aircraft_report(60, 130) == ('FUEL OK', 'ENGINE OVERHEAT')
 assert generate_aircraft_report(20, 90) == ('LOW FUEL', 'ENGINE OK')
 assert generate_aircraft_report(29,100) == ('LOW FUEL', 'ENGINE OVERHEAT')
