@@ -36,6 +36,11 @@ def generate_aircraft_report(fuel, engine_temp):
 
     return fuel_status, engine_status
 
+def calculate_fuel_warning(fuel):
+        if fuel < 20:
+            return "CRITICALLY LOW FUEL, LAND IMMEDIATELY"
+        else:
+            return "FUEL OK"
 
 
 for aircraft in fleet:
