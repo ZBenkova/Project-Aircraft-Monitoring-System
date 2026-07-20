@@ -62,13 +62,13 @@ def analyze_fleet(fleet):
             aircraft["engine_temp"]
         )
 
-    if fuel_status == "LOW FUEL":
+        if fuel_status == "LOW FUEL":
         
-        low_fuel_count += 1
+            low_fuel_count += 1
 
-    if engine_status == "ENGINE OVERHEAT":
+        if engine_status == "ENGINE OVERHEAT":
         
-        overheating_count += 1
+            overheating_count += 1
     
     return low_fuel_count, overheating_count
 

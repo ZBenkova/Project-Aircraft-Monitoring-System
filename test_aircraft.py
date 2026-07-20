@@ -21,10 +21,15 @@ def test_engine_overheat():
 def test_fuel_ok():
     result = calculate_fuel_warning(20)
 
-    assert result == "FUEL OK"
+    assert result == ("FUEL OK1")
     
 def test_critical_low_fuel():
     result = calculate_fuel_warning(19)
 
-    assert result == "CRITICALLY LOW FUEL, LAND IMMEDIATELY"
-    
+    assert result == ("CRITICALLY LOW FUEL, LAND IMMEDIATELY1")
+
+test_fuel()
+test_fuel_ok()
+test_low_fuel_engine()
+test_critical_low_fuel()
+test_engine_overheat()
