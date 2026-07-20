@@ -41,6 +41,40 @@ def calculate_fuel_warning(fuel):
             return "CRITICALLY LOW FUEL, LAND IMMEDIATELY"
         else:
             return "FUEL OK"
+        
+def analyze_fleet_exercise(fleet):
+
+    pass
+
+ # "Zatím nic nedělej, ale blok existuje: PASS"
+
+
+#######
+
+def analyze_fleet(fleet):
+    low_fuel_count = 0
+    overheating_count = 0
+
+    for aircraft in fleet:
+
+        fuel_status, engine_status = generate_aircraft_report(
+            aircraft["fuel"],
+            aircraft["engine_temp"]
+        )
+
+    if fuel_status == "LOW FUEL":
+        
+        low_fuel_count += 1
+
+    if engine_status == "ENGINE OVERHEAT":
+        
+        overheating_count += 1
+    
+    return low_fuel_count, overheating_count
+
+
+#######
+
 
 
 for aircraft in fleet:
@@ -57,3 +91,13 @@ assert 2 + 2 == 4
 assert generate_aircraft_report(60, 130) == ('FUEL OK', 'ENGINE OVERHEAT')
 assert generate_aircraft_report(20, 90) == ('LOW FUEL', 'ENGINE OK')
 assert generate_aircraft_report(29,100) == ('LOW FUEL', 'ENGINE OVERHEAT')
+analyze_fleet
+
+# "Tento kód spusť jen tehdy, když spouštím main.py přímo:"
+if __name__ == "__main__":
+    for aircraft in fleet:
+        status = generate_aircraft_report(
+            aircraft["fuel"],
+            aircraft["engine_temp"]
+        )
+        print(aircraft["flight"], status)
