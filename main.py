@@ -115,7 +115,6 @@ def check_sensors(my_aircraft):
     if my_aircraft["fuel"] <= 30:
         alerts.append("WARNING, LOW FUEL!")
 
-    print(alerts)
     return alerts
 
 #tento zapis neni dobry, lepsi je for cyklus, protoze pokud by neexistoval napr. prvek 1 ve fleet, pak by mi to cele spadlo pri jejim volani
@@ -125,3 +124,16 @@ def check_sensors(my_aircraft):
 
 for aircraft in fleet:
    check_sensors(aircraft)
+
+for aircraft in fleet:
+    alerts = check_sensors(aircraft)
+
+    print(f"Flight: {aircraft['flight']}")
+
+    if alerts:
+        for alert in alerts:
+            print(f"  - {alert}")
+    else:
+        print("  - No alerts")
+
+    print()
