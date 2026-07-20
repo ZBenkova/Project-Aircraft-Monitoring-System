@@ -1,6 +1,6 @@
 from main import generate_aircraft_report, calculate_fuel_warning
 
-def test_fuel_ok():
+def test_fuel():
     result = generate_aircraft_report(60, 90)
 
     assert result == ('FUEL OK', 'ENGINE OK')
