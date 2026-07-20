@@ -101,3 +101,27 @@ if __name__ == "__main__":
             aircraft["engine_temp"]
         )
         print(aircraft["flight"], status)
+
+
+###################
+        
+
+def check_sensors(my_aircraft):
+    alerts = []
+
+    if my_aircraft["engine_temp"] >= 100:
+        alerts.append("WARNING, HIGH TEMPERATURE!")
+
+    if my_aircraft["fuel"] <= 30:
+        alerts.append("WARNING, LOW FUEL!")
+
+    print(alerts)
+    return alerts
+
+#tento zapis neni dobry, lepsi je for cyklus, protoze pokud by neexistoval napr. prvek 1 ve fleet, pak by mi to cele spadlo pri jejim volani
+#check_sensors(fleet[0])
+#check_sensors(fleet[1])
+#check_sensors(fleet[2])
+
+for aircraft in fleet:
+   check_sensors(aircraft)
