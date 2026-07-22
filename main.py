@@ -5,18 +5,26 @@ with open("aircraft.csv") as file:
     print("Lines:", lines)
 
 for line in lines[1:]:
-    print("Line:", line)
+    print(f"Line: {line}") #nebo: print("Line:", line)
+    
     data = line.strip().split(",")
-    print("Data:", data)
 
     aircraft = {
         "flight": data[0],
-        "altitude": int(data[1]),
-        "speed": int(data[2]),
-        "engine_temp": int(data[3]),
-        "fuel": int(data[4])
+        "aircraft_type": data[1],
+        "origin": data[2],
+        "destination": data[3],
+        "altitude": int(data[4]),
+        "speed": int(data[5]),
+        "engine_temp": int(data[6]),
+        "fuel": int(data[7]),
+        "oil_pressure": int(data[8]),
+        "outside_temp": int(data[9]),
+        "cabin_pressure": int(data[10]),
+        "engine_rpm": int(data[11]),
+        "status": data[12]
+
     }
-    print("aircraft:", aircraft)
 
     fleet.append(aircraft)
 
@@ -137,3 +145,26 @@ for aircraft in fleet:
         print("  - No alerts")
 
     print()
+
+################
+
+for aircraft in fleet:
+    def moje_funkce(parametr_palivo):
+        alerts = []
+        if parametr_palivo < 20:
+            alerts.append("LOW FUEL")
+        return alerts
+
+moje_funkce(aircraft["fuel"])
+
+
+######################
+
+def moje_funkce(parametr_palivo):
+        alerts = []
+        if parametr_palivo < 20:
+            alerts.append("LOW FUEL")
+        return alerts
+for aircraft in fleet:
+    moje_funkce(aircraft["fuel"])
+
