@@ -1,30 +1,28 @@
+from aircraft import Aircraft
+
 fleet = []
 
 with open("aircraft.csv") as file:
     lines = file.readlines()
-    print("Lines:", lines)
 
 for line in lines[1:]:
-    print(f"Line: {line}") #nebo: print("Line:", line)
-    
     data = line.strip().split(",")
 
-    aircraft = {
-        "flight": data[0],
-        "aircraft_type": data[1],
-        "origin": data[2],
-        "destination": data[3],
-        "altitude": int(data[4]),
-        "speed": int(data[5]),
-        "engine_temp": int(data[6]),
-        "fuel": int(data[7]),
-        "oil_pressure": int(data[8]),
-        "outside_temp": int(data[9]),
-        "cabin_pressure": int(data[10]),
-        "engine_rpm": int(data[11]),
-        "status": data[12]
-
-    }
+    aircraft = Aircraft(
+        data[0],
+        data[1],
+        data[2],
+        data[3],
+        int(data[4]),
+        int(data[5]),
+        int(data[6]),
+        int(data[7]),
+        int(data[8]),
+        int(data[9]),
+        int(data[10]),
+        int(data[11]),
+        data[12]
+    )
 
     fleet.append(aircraft)
 
